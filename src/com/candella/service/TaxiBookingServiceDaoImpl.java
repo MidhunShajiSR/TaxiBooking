@@ -7,10 +7,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
-//import java.text.DateFormat;
 import java.util.List;
 import java.util.Random;
-//import java.sql.Date;
 import java.util.Scanner;
 
 import com.candella.dao.TaxiBookingDao;
@@ -66,11 +64,7 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 		}
 		System.out.println("Enter customer Date of Birth (yyyy-MM-dd) : ");
 		String dob = scanner.nextLine();
-		// String regx3 =("([0-9]{4}-(0[1-9]|1[0-2])-0[1-9]|1[0-9]|2[0-9]|3[0-1])");
-//		String regx3 =("((?:19|20)\\\\d\\\\d)/(0?[1-9]|1[012])/([12][0-9]|3[01]|0?[1-9])");
-//		if (dob.matches(regx3)== false) {		
-//				System.out.println("invalid input"); 
-//			}
+
 		SimpleDateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
 		Date date1 = null;
 		try {
@@ -92,10 +86,6 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 		}
 		System.out.println("Enter customer Password : ");
 		String pass = scanner.nextLine();
-//		String regx6 =("\\D\\d{4,10}");
-//		if (pass.matches(regx6)== false) {		
-//			System.out.println("invalid input"); 
-//		}
 
 		Customer customer = new Customer(customerId, fName, sName, gender, date1, num, mail, pass);
 		TaxiBookingDao taxiBookingDao = new TaxiBookingDaoImpl();
@@ -130,7 +120,7 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 
 		String customerid = customerId;
 		TaxiBookingDao taxiBookingDoa = new TaxiBookingDaoImpl();
-		// taxiBookingDoa.display(customer);
+
 		Customer customer = taxiBookingDoa.display(customerid);
 		System.out.println("Id" + "     " + "FirstName" + "   " + "LastName" + "     " + "Gender" + "   " + "Dob"
 				+ "     " + "Mobile_No" + "   " + "Mail Id" + "   " + "Password");
@@ -158,7 +148,6 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 		System.out.println("6. Mail Id");
 		System.out.println("7. Password");
 
-		// System.out.println("enter");
 		int key = scanner.nextInt();
 		switch (key) {
 		case 1:
@@ -177,7 +166,7 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 			System.out.println("Enter customer Date of Birth (yyyy-MM-dd) : ");
 			dob = scanner.nextLine() + scanner.nextLine();
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			// Date date2 = null;
+			
 			try {
 				date2 = dateFormat.parse(dob);
 			} catch (ParseException e) {
@@ -199,8 +188,7 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 		default:
 			throw new IllegalArgumentException("wrong choice");
 		}
-
-		// System.out.println("name = "+fname+"*******##$%%^^^$#33");
+		
 		customer2.setFirstName((fname != null) ? fname : customer1.getFirstName());
 		customer2.setLastName((lname != null) ? lname : customer1.getLastName());
 		customer2.setGender((gender != null) ? gender : customer1.getGender());
@@ -208,8 +196,7 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 		customer2.setMobileNo((num != null) ? num : customer1.getMobileNo());
 		customer2.setMailId((mail != null) ? mail : customer1.getMailId());
 		customer2.setPassword((pass != null) ? pass : customer1.getPassword());
-		// taxiBookingDoa = new TaxiBookingDaoImpl();
-
+		
 		taxiBookingDoa.update(customer2, customerId);
 		System.out.println(" ");
 		display(customerId);
@@ -236,7 +223,7 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 		System.out.println("6. Mail Id");
 		System.out.println("7. Password");
 
-		// System.out.println("enter");
+		
 		int key = scanner.nextInt();
 		switch (key) {
 		case 1:
@@ -255,7 +242,7 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 			System.out.println("Enter customer Date of Birth (yyyy-MM-dd) : ");
 			dob = scanner.nextLine() + scanner.nextLine();
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			// Date date2 = null;
+			
 			try {
 				date2 = dateFormat.parse(dob);
 			} catch (ParseException e) {
@@ -285,8 +272,7 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 		customer2.setMobileNo((num != null) ? num : customer1.getMobileNo());
 		customer2.setMailId((mail != null) ? mail : customer1.getMailId());
 		customer2.setPassword((pass != null) ? pass : customer1.getPassword());
-		// taxiBookingDoa = new TaxiBookingDaoImpl();
-
+		
 		taxiBookingDoa.updateCustomers(customer2, customerId);
 
 	}
@@ -385,11 +371,7 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 		}
 		System.out.println("Enter Date of Birth (yyyy-MM-dd) : ");
 		String dob = scanner.nextLine();
-		// String regx3 =("([0-9]{4}-(0[1-9]|1[0-2])-0[1-9]|1[0-9]|2[0-9]|3[0-1])");
-//		String regx3 =("((?:19|20)\\\\d\\\\d)/(0?[1-9]|1[012])/([12][0-9]|3[01]|0?[1-9])");
-//		if (dob.matches(regx3)== false) {		
-//				System.out.println("invalid input"); 
-//			}
+
 		SimpleDateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
 		Date date2 = null;
 		try {
@@ -426,7 +408,6 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 		Car car = taxiBookingDao.getCar(carId);
 
 		Driver driver = new Driver(driverId, car, fName, lName, gender, date2, num, mail, licience, avail, pass);
-//		TaxiBookingDao taxiBookingDao = new TaxiBookingDaoImpl();
 		taxiBookingDao.registerDriver(driver);
 		System.out.println("");
 		System.out.println("******** Registration Successful ***********");
@@ -583,8 +564,6 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 
 	public void driverDisplay(String driverId) {
 		Scanner scanner = new Scanner(System.in);
-		// System.out.println("Enter the CustomerId : ");
-		// String driverid = scanner.nextLine();
 		String driverid = driverId;
 		TaxiBookingDao taxiBookingDoa = new TaxiBookingDaoImpl();
 		// taxiBookingDoa.display(customer);
@@ -654,7 +633,6 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 			mfgYear = scanner.nextLine() + scanner.nextLine();
 			break;
 		}
-		// Car car = new Car(carNo, carName, carDesc, mfgYear);
 		car2.setCarNo((carNo != null) ? carNo : car1.getCarNo());
 		car2.setModelName((carName != null) ? carName : car1.getModelName());
 		car2.setModelDescription((carDesc != null) ? carName : car1.getModelDescription());
@@ -920,7 +898,7 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 		TaxiBookingDao taxiBookingDao = new TaxiBookingDaoImpl();
 		Driver driver = taxiBookingDao.driverDisplay(driverId);
 		Customer customer = taxiBookingDao.display(customerId);
-		// String driverId = serviceTemp.getDriver().getDriverId();
+		
 		Scanner scanner = new Scanner(System.in);
 		String cusFname = customer.getFirstName();
 		String cusLname = customer.getLastName();
@@ -943,7 +921,7 @@ public class TaxiBookingServiceDaoImpl implements TaxiBookingServiceDao {
 		System.out.println("Give Review : ");
 		String feedback = scanner.nextLine() + scanner.nextLine();
 		Review review = new Review(customer, driver, react, feedback);
-		// taxiBookingDao.cusReview(customerId,review,cusFname,cusLname);
+		
 		taxiBookingDao.cusReview2(customerId, review, driverId);
 
 	}
